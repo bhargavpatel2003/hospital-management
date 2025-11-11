@@ -17,6 +17,7 @@ class Student(models.Model):
     email=fields.Char(string="Email")
     gendor=fields.Selection([("male","Male"),("female","Female")],string="Gender",default='male')
     teacher_id = fields.Many2one("school.teacher", string="Class Teacher")
+    father_name=fields.Char(string="fathername")
     
     # child=fields.Boolean(string="Child",compute="get_genration")
     # adult=fields.Boolean(string="Adult",compute="get_genration")
