@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="view_invoice_inh" model="ir.ui.view">
+            <field name="name">account.move.form.inherit.custom.action</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//header" position="inside">
+                    <button name="%(school_management.action_invoice_wizard)d"
+                            string="Inv Line"
+                            type="action"
+                            class="btn-primary"/>
+
+                    <!-- <button type="action" name="%(base.action_currency_form)d" string="Currencies" class="btn-link" icon="fa-arrow-right"/> -->
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

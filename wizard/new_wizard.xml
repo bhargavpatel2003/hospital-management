@@ -1,0 +1,69 @@
+<odoo>
+  <record id="view_lr_report_wizard_form_sale" model="ir.ui.view">
+    <field name="name">lr.report.wizard.so.form</field>
+    <field name="model">sodata.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Sales Wizard">
+            
+               <group>
+                    <field name="partner_id"/>
+                </group>
+                <notebook>
+                    <page string="Sale Order Lines">
+                        <field name="sale_order_line">
+                            <tree editable="bottom">
+                                <field name="product_id"/>
+                                <field name="discription"/>
+                                <field name="product_qty"/>
+                                <field name="qty_dilv"/>
+                                <field name="qty_invoice"/>
+                                <field name="price_unit"/>
+                                <field name="tax_ids" widget="many2many_tags"/>
+                                <field name="subtotal" readonly="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                <footer>
+                        <button name="confirm_so"
+                                    class="btn-primary"
+                                    type="object"
+                                    string="Confirm">
+                        </button>
+                </footer>
+      </form>
+    </field>
+  </record>
+
+   <record id="view_sodata_wizard_line_tree" model="ir.ui.view">
+        <field name="name">sodata.wizard.line.tree</field>
+        <field name="model">sodata.wizard.line</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="product_id"/>
+                <field name="discription"/>
+                <field name="product_qty"/>
+                <field name="qty_dilv"/>
+                <field name="qty_invoice"/>
+                <field name="price_unit"/>
+                <field name="tax_ids" widget="many2many_tags"/>
+                <field name="subtotal" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+  <record id="action_sale_wizard" model="ir.actions.act_window">
+    <field name="name">So Report</field>
+    <field name="res_model">sodata.wizard</field>
+    <field name="view_mode">tree,form</field>
+    <field name="target">new</field>
+    <!-- <field name="context">{'active_id': active_id}</field> -->
+  </record>
+    
+   <!-- <menuitem id="menu_lr_excel_report_file"
+              name="LR Excel Report"
+              parent="transport_managment.menu_xls_report_wizard_menu"
+              action="action_lr_report_wizard"
+              sequence="100"/> -->
+
+</odoo>
